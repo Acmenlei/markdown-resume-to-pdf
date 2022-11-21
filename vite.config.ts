@@ -5,6 +5,7 @@ import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import viteCompression from 'vite-plugin-compression'
+import eslintPlugin from 'vite-plugin-eslint'
 
 export default defineConfig({
   plugins: [
@@ -17,7 +18,8 @@ export default defineConfig({
     }),
     viteCompression({
       threshold: 1024000 // 大于1m压缩
-    })
+    }),
+    eslintPlugin({ cache: false }) // 禁用缓存
   ],
   resolve: {
     alias: {

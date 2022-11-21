@@ -1,12 +1,16 @@
-<script setup lang='ts'>
-import outNav from "@/common/nav/outNav"
+<script setup lang="ts">
+import outNav from "@/common/nav/outNav";
 </script>
 
 <template>
   <div id="header">
-    <div class="logo" @click="$router.replace('/home')"><img src="/vite.svg" alt=""></div>
+    <div class="logo" @click="$router.replace('/home')">
+      <img src="/vite.svg" alt="logo">
+    </div>
     <ul class="nav">
-      <li v-for="navItem in outNav" :class="{ 'active': $route.path === navItem.path }">
+      <li 
+        v-for="navItem in outNav"
+        :class="{ 'active': $route.path === navItem.path }">
         <i :class="navItem.icon"></i>
         <router-link v-if="!navItem.tooltip" :to="navItem.path">{{ navItem.name }}</router-link>
         <span v-else>{{ navItem.name }}</span>
@@ -15,7 +19,7 @@ import outNav from "@/common/nav/outNav"
   </div>
 </template>
 
-<style lang='scss' scoped>
+<style lang="scss" scoped>
 #header {
   background: #fff;
   z-index: 1;
